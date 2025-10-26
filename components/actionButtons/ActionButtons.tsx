@@ -3,12 +3,13 @@
 import React from "react";
 import { useSearch } from "@/context/SearchContext";
 import ActionButton from "./ActionButton";
+import { ActionType } from "./types";
 import { actionButtonsConfig, actionButtonsStyles } from "./index";
 
 const ActionButtons = () => {
   const { state, dispatch } = useSearch();
 
-  const handleButtonClick = (type: "rent" | "buy" | "ai") => {
+  const handleButtonClick = (type: ActionType) => {
     dispatch({ type: "SET_ACTION_TYPE", payload: type });
   };
 

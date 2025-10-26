@@ -1,4 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lystio Assignment - Property Search
+
+This is a [Next.js](https://nextjs.org) project implementing a property search bar with action buttons (Rent/Buy/AI).
+
+## Project Structure
+
+```
+lystio-assignment/
+├── app/
+│   ├── globals.css          # Global styles, Tailwind config
+│   ├── layout.tsx           # Root layout with SearchProvider
+│   └── page.tsx             # Main page
+├── components/
+│   ├── actionButtons/       # Action Buttons module
+│   │   ├── ActionButton.tsx # Reusable button component
+│   │   ├── ActionButtons.tsx # Container component
+│   │   ├── config.ts        # Configuration & styles
+│   │   ├── constants.ts     # ACTION_TYPES constants
+│   │   ├── types.ts         # TypeScript types
+│   │   └── index.tsx        # Barrel export
+│   ├── searchBar/
+│   │   └── index.tsx        # Re-exports actionButtons
+│   └── ui/
+│       ├── Button.tsx       # Generic button component
+│       └── types.ts         # UI types
+├── context/
+│   └── SearchContext.tsx    # Global state for search
+├── lib/
+│   ├── api/                 # API layer
+│   ├── hooks/              # Custom hooks
+│   └── utils/              # Utility functions
+├── types/
+│   └── index.ts            # Global types
+└── .vscode/
+    └── settings.json       # Prettier/ESLint config
+```
+
+## Component Architecture
+
+### ActionButtons Module
+- **Location:** `components/actionButtons/`
+- **Exports:** Main component (default), constants, types
+- **Style:** Modular, barrel exports, separation of concerns
+
+### Features Implemented
+✅ Action Buttons (Rent/Buy/AI)
+✅ Modern-normalize CSS reset
+✅ Tailwind CSS v4 configuration
+✅ Prettier code formatting
+✅ Cross-browser consistency
 
 ## Getting Started
 

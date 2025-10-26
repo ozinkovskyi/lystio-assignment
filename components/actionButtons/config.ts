@@ -1,16 +1,17 @@
 import { ActionButtonConfig } from "./types";
+import { ACTION_TYPES } from "./constants";
 
 export const actionButtonsConfig: ActionButtonConfig[] = [
   {
-    type: "rent",
+    type: ACTION_TYPES.RENT,
     label: "Rent",
   },
   {
-    type: "buy",
+    type: ACTION_TYPES.BUY,
     label: "Buy",
   },
   {
-    type: "ai",
+    type: ACTION_TYPES.AI,
     label: "Lystio",
     hasAiText: true,
   },
