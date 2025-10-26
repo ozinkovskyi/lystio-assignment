@@ -10,7 +10,7 @@ export interface SearchFilter {
 export interface Location {
   id: string;
   name: string;
-  type: 'city' | 'district' | 'neighborhood';
+  type: "city" | "district" | "neighborhood";
 }
 
 export interface Category {
@@ -38,9 +38,8 @@ export interface RecentSearch {
 }
 
 export interface SearchFiltersState {
-  actionType: 'rent' | 'buy' | 'ai';
+  actionType: "rent" | "buy" | "ai";
   location: string[];
   category: number[];
   priceRange: [number, number];
 }
-

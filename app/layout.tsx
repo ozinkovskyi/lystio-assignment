@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { SearchProvider } from "@/context/SearchContext";
+import SearchProvider from "@/context/SearchContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -18,20 +14,18 @@ export const metadata: Metadata = {
   description: "Search for properties to rent or buy",
 };
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <SearchProvider>
-          {children}
-        </SearchProvider>
+      <body className={`${plusJakartaSans.variable} antialiased`}>
+        <SearchProvider>{children}</SearchProvider>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

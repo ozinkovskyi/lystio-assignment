@@ -1,4 +1,4 @@
-import { SearchFilter, SearchFiltersState } from '@/types';
+import { SearchFilter, SearchFiltersState } from "@/types";
 
 /**
  * Build filter object for API calls based on current state
@@ -17,7 +17,7 @@ export function buildFilterObject(state: SearchFiltersState): SearchFilter {
   }
 
   // Add rent type (rent/buy)
-  const rentType = state.actionType === 'ai' ? ['rent', 'buy'] : [state.actionType];
+  const rentType = state.actionType === "ai" ? ["rent", "buy"] : [state.actionType];
   filter.rentType = rentType;
 
   // Add price range (only for non-histogram calls)
@@ -33,10 +33,9 @@ export function buildFilterObject(state: SearchFiltersState): SearchFilter {
  */
 export function buildHistogramFilter(state: SearchFiltersState): SearchFilter {
   const filter = buildFilterObject(state);
-  
+
   // Remove rent parameter for histogram
   const { rent, ...histogramFilter } = filter;
-  
+
   return histogramFilter;
 }
-

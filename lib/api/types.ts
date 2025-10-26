@@ -1,4 +1,4 @@
-import { SearchFilter, PriceHistogram, RecentSearch, Location } from '@/types';
+import { SearchFilter, PriceHistogram, RecentSearch, Location } from "@/types";
 
 export interface HistogramResponse {
   min: number;
@@ -17,4 +17,3 @@ export interface TenementCountResponse {
 export interface RecentSearchResponse extends Array<RecentSearch> {}
 
 export interface BoundariesResponse extends Array<Location> {}
-

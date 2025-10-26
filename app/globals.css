@@ -1,15 +1,37 @@
+/* Import modern-normalize for cross-browser consistency */
+@import "modern-normalize/modern-normalize.css";
+
+/* Import Tailwind CSS */
 @import "tailwindcss";
 
+/* CSS Variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Custom colors from Lystio design */
+  --lystio-purple-light: #f7f7fd;
+  --lystio-purple-border: #eee7ff;
+  --lystio-purple: #a540f3;
+  --lystio-purple-dark: #5110e8;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  /* Lystio brand colors */
+  --color-lystio-purple-light: #f7f7fd;
+  --color-lystio-purple-border: #eee7ff;
+  --color-lystio-purple: #a540f3;
+  --color-lystio-purple-dark: #5110e8;
+  --color-lystio-purple-hover: #f0f0f8;
+  --color-lystio-black: #000000;
+  --color-lystio-white: #ffffff;
+  --color-lystio-green: #0bb765;
+
+  /* Font families */
+  --font-jakarta: var(--font-plus-jakarta);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +41,58 @@
   }
 }
 
+/* Base styles - box-sizing for all elements */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-jakarta),
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Typography defaults */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Prevent size changes from borders and outlines */
+button,
+input,
+select,
+textarea {
+  outline: none;
+  border: transparent solid 0;
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
