@@ -3,7 +3,12 @@
 import React from "react";
 import { ActionButtonProps } from "./types";
 
-const ActionButton = ({ label, isActive, onClick, children }: ActionButtonProps) => {
+const ActionButton = ({
+  label,
+  isActive,
+  onClick,
+  children,
+}: ActionButtonProps) => {
   const getButtonStyle = () => {
     if (isActive) {
       return "bg-white text-black border border-white rounded-full transition-all cursor-pointer";

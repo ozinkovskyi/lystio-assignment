@@ -8,7 +8,8 @@ const Button = ({
   children,
   ...props
 }: ButtonProps) => {
-  const baseStyles = "rounded-lg font-medium transition-colors focus:outline-none cursor-pointer";
+  const baseStyles =
+    "rounded-lg font-medium transition-colors focus:outline-none cursor-pointer";
 
   const variantStyles = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",

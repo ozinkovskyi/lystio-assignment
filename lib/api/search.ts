@@ -7,7 +7,8 @@ import {
   BoundariesResponse,
 } from "./types";
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.lystio.co";
+const API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL || "https://api.lystio.co";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -38,10 +39,18 @@ export const searchAPI = {
     try {
       console.log("Calling searchLocations with query:", query);
       const response = await api.post("/geo/search", { query });
-      console.log("searchLocations response:", response.data, "<<<response.data123");
+      console.log(
+        "searchLocations response:",
+        response.data,
+        "<<<response.data123"
+      );
       // Ensure we always return an array
       if (Array.isArray(response.data)) {
-        console.log("searchLocations returning array with", response.data.length, "items");
+        console.log(
+          "searchLocations returning array with",
+          response.data.length,
+          "items"
+        );
         return response.data;
       }
       // If API returns object like {"mode":"point"}, return empty array
@@ -66,7 +75,10 @@ export const searchAPI = {
       console.log("Popular boundaries result:", result);
       return result;
     } catch (error) {
-      console.warn("Failed to fetch popular boundaries, returning empty array", error);
+      console.warn(
+        "Failed to fetch popular boundaries, returning empty array",
+        error
+      );
       return [];
     }
   },
@@ -74,7 +86,9 @@ export const searchAPI = {
   /**
    * Get price histogram
    */
-  getPriceHistogram: async (filters: SearchFilter): Promise<HistogramResponse> => {
+  getPriceHistogram: async (
+    filters: SearchFilter
+  ): Promise<HistogramResponse> => {
     try {
       const response = await api.post("/tenement/search/histogram", filters);
       return response.data;

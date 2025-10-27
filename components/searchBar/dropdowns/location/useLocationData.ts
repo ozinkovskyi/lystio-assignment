@@ -17,7 +17,7 @@ export const useLocationData = (searchQuery: string) => {
           searchAPI.getPopularBoundaries(),
           searchAPI.getRecentSearches(),
         ]);
-        
+
         // Flatten the structure: cities have children (districts)
         const flattened: Location[] = [];
         popular.forEach((city: Location) => {
@@ -26,11 +26,11 @@ export const useLocationData = (searchQuery: string) => {
             id: city.id,
             name: city.name,
             altName: city.altName,
-            type: 'city',
+            type: "city",
             urlSegment: city.urlSegment,
             children: city.children, // Preserve children for districts count
           });
-          
+
           // Add districts
           if (city.children) {
             city.children.forEach((district: Location) => {
@@ -38,14 +38,14 @@ export const useLocationData = (searchQuery: string) => {
                 id: district.id,
                 name: district.name,
                 altName: district.altName,
-                type: 'district',
+                type: "district",
                 postal_code: district.postal_code,
                 urlSegment: district.urlSegment,
               });
             });
           }
         });
-        
+
         setPopularBoundaries(flattened);
         setRecentSearches(recent);
       } catch (error) {
@@ -61,7 +61,7 @@ export const useLocationData = (searchQuery: string) => {
   // Debounced search for locations
   useEffect(() => {
     console.log("LocationContent searchQuery changed:", searchQuery);
-    
+
     if (!searchQuery || searchQuery.length < 2) {
       setSearchResults([]);
       return;
@@ -94,9 +94,12 @@ export const useLocationData = (searchQuery: string) => {
     : [];
 
   // Determine which results to show - ensure it's always an array
-  const displayResults = searchQuery.length >= 2 
-    ? (Array.isArray(searchResults) ? searchResults : [])
-    : filteredPopular;
+  const displayResults =
+    searchQuery.length >= 2
+      ? Array.isArray(searchResults)
+        ? searchResults
+        : []
+      : filteredPopular;
 
   return {
     popularBoundaries,
@@ -107,4 +110,3 @@ export const useLocationData = (searchQuery: string) => {
     searching,
   };
 };
-

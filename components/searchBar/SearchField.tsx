@@ -18,15 +18,18 @@ const SearchField = ({
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    
+    if (typeof window === "undefined") return;
+
     if (isActive && fieldRef.current && onPositionChange) {
       const rect = fieldRef.current.getBoundingClientRect();
-      onPositionChange({
-        top: rect.bottom,
-        left: rect.left,
-        width: rect.width,
-      }, type);
+      onPositionChange(
+        {
+          top: rect.bottom,
+          left: rect.left,
+          width: rect.width,
+        },
+        type
+      );
     }
   }, [isActive, onPositionChange, type]);
 
@@ -54,52 +57,52 @@ const SearchField = ({
       data-field-type={type}
       role="button"
       onClick={(e) => onClick && onClick(e)}
-      className={`flex flex-col h-full flex-1 whitespace-nowrap text-black flex-shrink-0 self-stretch py-[12px] px-[24px] cursor-pointer ${borderClasses}`}
+      className={`flex h-full flex-1 flex-shrink-0 cursor-pointer flex-col self-stretch px-[24px] py-[12px] whitespace-nowrap text-black ${borderClasses}`}
       style={{ backgroundColor: getBackgroundColor() }}
-          >
+    >
+      <span
+        style={{
+          fontFamily: "Plus Jakarta Sans",
+          fontSize: "12px",
+          fontWeight: 500,
+        }}
+      >
+        {label}
+      </span>
+      {type === "location" && isActive ? (
+        <input
+          ref={inputRef}
+          type="text"
+          placeholder={placeholder}
+          value={searchQuery}
+          onChange={(e) => {
+            console.log("SearchField onChange:", e.target.value);
+            onSearchQueryChange && onSearchQueryChange(e.target.value);
+          }}
+          onClick={(e) => e.stopPropagation()}
+          className="w-full border-none bg-transparent outline-none"
+          style={{
+            color: "var(--Black, #0E0E0E)",
+            fontFamily: "Plus Jakarta Sans",
+            fontSize: "16px",
+            fontWeight: 400,
+            lineHeight: "160%",
+          }}
+        />
+      ) : (
         <span
           style={{
+            color: "var(--Black, #0E0E0E)",
             fontFamily: "Plus Jakarta Sans",
-            fontSize: "12px",
-            fontWeight: 500,
+            fontSize: "16px",
+            fontWeight: 400,
+            lineHeight: "160%",
           }}
         >
-          {label}
+          {placeholder}
         </span>
-        {type === "location" && isActive ? (
-          <input
-            ref={inputRef}
-            type="text"
-            placeholder={placeholder}
-            value={searchQuery}
-            onChange={(e) => {
-              console.log("SearchField onChange:", e.target.value);
-              onSearchQueryChange && onSearchQueryChange(e.target.value);
-            }}
-            onClick={(e) => e.stopPropagation()}
-            className="w-full bg-transparent border-none outline-none"
-            style={{
-              color: "var(--Black, #0E0E0E)",
-              fontFamily: "Plus Jakarta Sans",
-              fontSize: "16px",
-              fontWeight: 400,
-              lineHeight: "160%",
-            }}
-          />
-        ) : (
-          <span
-            style={{
-              color: "var(--Black, #0E0E0E)",
-              fontFamily: "Plus Jakarta Sans",
-              fontSize: "16px",
-              fontWeight: 400,
-              lineHeight: "160%",
-            }}
-          >
-            {placeholder}
-          </span>
-        )}
-      </div>
+      )}
+    </div>
   );
 };
 

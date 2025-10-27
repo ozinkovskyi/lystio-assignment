@@ -2,11 +2,7 @@
 
 import React from "react";
 import { FilterType } from "./types";
-import {
-  LocationContent,
-  CategoryContent,
-  PriceContent,
-} from "./dropdowns";
+import { LocationContent, CategoryContent, PriceContent } from "./dropdowns";
 
 interface DropdownProps {
   isOpen: boolean;
@@ -16,7 +12,13 @@ interface DropdownProps {
   searchQuery?: string;
 }
 
-const Dropdown = ({ isOpen, top, left, activeField, searchQuery }: DropdownProps) => {
+const Dropdown = ({
+  isOpen,
+  top,
+  left,
+  activeField,
+  searchQuery,
+}: DropdownProps) => {
   if (!isOpen) return null;
 
   const renderContent = () => {
@@ -34,7 +36,8 @@ const Dropdown = ({ isOpen, top, left, activeField, searchQuery }: DropdownProps
 
   return (
     <div
-      className="fixed flex w-[300px] h-[490px] flex-col items-start flex-shrink-0 rounded-2xl bg-white shadow-[0_8px_24px_rgba(0,0,0,0.12)] z-50 overflow-hidden"
+      data-dropdown
+      className="fixed z-50 flex h-[490px] w-[300px] flex-shrink-0 flex-col items-start overflow-hidden rounded-2xl bg-white shadow-[0_8px_24px_rgba(0,0,0,0.12)]"
       style={{
         top: `${top + 8}px`,
         left: `${left}px`,

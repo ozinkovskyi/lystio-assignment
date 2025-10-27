@@ -10,7 +10,10 @@ interface SearchContextType {
 
 type SearchAction =
   | { type: "SET_ACTION_TYPE"; payload: "rent" | "buy" | "ai" }
-  | { type: "SET_ACTIVE_FIELD"; payload: "location" | "category" | "price" | null }
+  | {
+      type: "SET_ACTIVE_FIELD";
+      payload: "location" | "category" | "price" | null;
+    }
   | { type: "SET_LOCATION"; payload: string[] }
   | { type: "SET_CATEGORY"; payload: number[] }
   | { type: "SET_PRICE_RANGE"; payload: [number, number] }

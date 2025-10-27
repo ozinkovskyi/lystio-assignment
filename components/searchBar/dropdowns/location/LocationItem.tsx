@@ -1,5 +1,6 @@
 import React from "react";
 import { Location } from "@/types";
+import { CheckMarkIcon } from "@/app/assets/icons";
 
 interface LocationItemProps {
   location: Location;
@@ -8,59 +9,59 @@ interface LocationItemProps {
   variant?: "card" | "list";
 }
 
-const LocationItem = ({ location, isSelected, onClick, variant = "card" }: LocationItemProps) => {
+const LocationItem = ({
+  location,
+  isSelected,
+  onClick,
+  variant = "card",
+}: LocationItemProps) => {
   const isList = variant === "list";
 
   if (isList) {
     return (
       <button
         onClick={onClick}
-        className={`w-full px-3 py-2 text-left rounded hover:bg-gray-50 transition-colors flex items-center justify-between ${
+        className={`flex w-full items-center justify-between rounded px-3 py-2 text-left transition-colors hover:bg-gray-50 ${
           isSelected ? "bg-purple-50" : ""
         }`}
       >
         <span className="text-sm text-gray-900">{location.name}</span>
-        {isSelected && (
-          <svg
-            className="w-4 h-4 text-purple-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
-        )}
+        {isSelected && <CheckMarkIcon />}
       </button>
     );
   }
 
   const districtsCount = location.children?.length || 0;
-console.log(districtsCount,'<<<districtsCount');
-console.log(location,'<<<.children');
+  console.log(districtsCount, "<<<districtsCount");
+  console.log(location, "<<<.children");
   return (
     <div
       role="button"
       onClick={onClick}
-      className={`rounded-xl overflow-hidden hover:bg-gray-50 transition-colors flex flex-col p-1 ${
-        isSelected ? "bg-purple-50 border border-purple-600" : "border border-transparent"
+      className={`flex flex-col overflow-hidden rounded-xl p-1 transition-colors hover:bg-gray-50 ${
+        isSelected
+          ? "border border-purple-600 bg-purple-50"
+          : "border border-transparent"
       }`}
     >
-      <img 
-        src="/images/mock_img_city.png" 
-        alt={location.name}
-        className="w-full h-12 object-cover rounded-xl"
-      />
+      <div className="relative">
+        <img
+          src="/images/mock_img_city.png"
+          alt={location.name}
+          className="h-12 w-full rounded-xl object-cover"
+        />
+        {isSelected && (
+          <div className="absolute top-1 right-1">
+            <CheckMarkIcon />
+          </div>
+        )}
+      </div>
       <div className="flex flex-col">
-        <span className="font-jakarta text-lystio-black-alt text-sm font-medium leading-[160%] overflow-hidden text-ellipsis whitespace-nowrap">
+        <span className="font-jakarta text-lystio-black-alt overflow-hidden text-sm leading-[160%] font-medium text-ellipsis whitespace-nowrap">
           {location.name}
         </span>
         {districtsCount > 0 && (
-          <span className="font-jakarta text-black-shade text-[10px] font-medium leading-[130%] overflow-hidden text-ellipsis whitespace-nowrap mt-1">
+          <span className="font-jakarta text-black-shade mt-1 overflow-hidden text-[10px] leading-[130%] font-medium text-ellipsis whitespace-nowrap">
             {districtsCount} Districts
           </span>
         )}
@@ -70,4 +71,3 @@ console.log(location,'<<<.children');
 };
 
 export default LocationItem;
-

@@ -5,4 +5,3 @@ export { default as DistrictsList } from "./DistrictsList";
 export { default as SearchResultsList } from "./SearchResultsList";
 export { default as RecentSearchesList } from "./RecentSearchesList";
 export { useLocationData } from "./useLocationData";
-

@@ -28,24 +28,25 @@ const LocationContent = ({ searchQuery }: LocationContentProps) => {
 
   const handleLocationSelect = (locationId: string | undefined) => {
     if (!locationId) return;
-    
+
+    // Only one location can be selected at a time
     const newLocations = state.location.includes(locationId)
-      ? state.location.filter((id) => id !== locationId)
-      : [...state.location, locationId];
+      ? [] // If clicking the same location, deselect it
+      : [locationId]; // Otherwise, select only this location
 
     dispatch({ type: "SET_LOCATION", payload: newLocations });
   };
 
   if (loading) {
     return (
-      <div className="w-full h-full flex items-center justify-center">
+      <div className="flex h-full w-full items-center justify-center">
         <div className="text-sm text-gray-500">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="flex h-full w-full flex-col">
       {/* Draw Area Button */}
       {!searchQuery && <DrawAreaButton />}
 

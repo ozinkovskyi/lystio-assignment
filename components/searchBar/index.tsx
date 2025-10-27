@@ -1,6 +1,15 @@
-export type { FilterType, SearchFieldConfig, SearchFieldProps, FieldPosition } from "./types";
+export type {
+  FilterType,
+  SearchFieldConfig,
+  SearchFieldProps,
+  FieldPosition,
+} from "./types";
 
-export { searchFieldsConfig, searchBarStyles, searchButtonConfig } from "./config";
+export {
+  searchFieldsConfig,
+  searchBarStyles,
+  searchButtonConfig,
+} from "./config";
 
 export { FILTER_TYPES } from "./constants";
 

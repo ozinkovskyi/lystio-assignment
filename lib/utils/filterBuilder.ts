@@ -17,7 +17,8 @@ export function buildFilterObject(state: SearchFiltersState): SearchFilter {
   }
 
   // Add rent type (rent/buy)
-  const rentType = state.actionType === "ai" ? ["rent", "buy"] : [state.actionType];
+  const rentType =
+    state.actionType === "ai" ? ["rent", "buy"] : [state.actionType];
   filter.rentType = rentType;
 
   // Add price range (only for non-histogram calls)

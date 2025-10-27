@@ -23,7 +23,9 @@ const ActionButtons = () => {
             isActive={state.actionType === button.type}
             onClick={() => handleButtonClick(button.type)}
           >
-            {button.hasAiText && <span className="text-lystio-purple"> AI</span>}
+            {button.hasAiText && (
+              <span className="text-lystio-purple"> AI</span>
+            )}
           </ActionButton>
         ))}
       </div>

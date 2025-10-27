@@ -15,7 +15,7 @@ const SearchButton = ({ label, onClick }: SearchButtonProps) => {
       variant="search"
       size="search"
       onClick={onClick}
-      className="flex w-[98px] h-[48px] flex-shrink-0 items-center justify-center gap-2 whitespace-nowrap"
+      className="flex h-[48px] w-[98px] flex-shrink-0 items-center justify-center gap-2 whitespace-nowrap"
       style={{
         borderRadius: "var(--Corner-Full, 1000px)",
         color: "var(--WhiteColors-White100, #FFF)",

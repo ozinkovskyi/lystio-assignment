@@ -16,7 +16,7 @@
   --lystio-purple-dark: #5110e8;
 
   /* M3 Design System Colors */
-  --M3-ref-neutral-neutral50: #79767D;
+  --M3-ref-neutral-neutral50: #79767d;
 
   /* Space scale */
   --sds-size-space-100: 4px;
@@ -34,11 +34,11 @@
   --color-lystio-purple-dark: #5110e8;
   --color-lystio-purple-hover: #f0f0f8;
   --color-lystio-black: #000000;
-  --color-lystio-black-alt: #0E0E0E;
+  --color-lystio-black-alt: #0e0e0e;
   --color-lystio-white: #ffffff;
   --color-lystio-green: #0bb765;
-  --color-neutral-50: #79767D;
-  --color-black-shade: #79767D;
+  --color-neutral-50: #79767d;
+  --color-black-shade: #79767d;
 
   /* Font families */
   --font-jakarta: var(--font-plus-jakarta);
