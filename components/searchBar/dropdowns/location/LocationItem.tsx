@@ -21,7 +21,7 @@ const LocationItem = ({
     return (
       <button
         onClick={onClick}
-        className={`flex w-full items-center justify-between rounded px-3 py-2 text-left transition-colors hover:bg-gray-50 ${
+        className={`flex w-full cursor-pointer items-center justify-between rounded px-3 py-2 text-left transition-colors hover:bg-gray-50 ${
           isSelected ? "bg-purple-50" : ""
         }`}
       >
@@ -38,7 +38,7 @@ const LocationItem = ({
     <div
       role="button"
       onClick={onClick}
-      className={`flex flex-col overflow-hidden rounded-xl p-1 transition-colors hover:bg-gray-50 ${
+      className={`flex cursor-pointer flex-col overflow-hidden rounded-xl p-1 transition-colors hover:bg-gray-50 ${
         isSelected
           ? "border border-purple-600 bg-purple-50"
           : "border border-transparent"
