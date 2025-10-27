@@ -5,4 +5,3 @@ export const ACTION_TYPES = {
   BUY: "buy" as ActionType,
   AI: "ai" as ActionType,
 } as const;
-

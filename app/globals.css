@@ -87,7 +87,6 @@ input,
 select,
 textarea {
   outline: none;
-  border: transparent solid 0;
 }
 
 /* Ensure images are responsive */

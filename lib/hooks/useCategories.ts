@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Category } from "@/types";
 
-const CATEGORIES_URL = "https://gist.github.com/waquner/f51507e13214d998e7ef4efb8e998a4f/raw";
+const CATEGORIES_URL =
+  "https://gist.github.com/waquner/f51507e13214d998e7ef4efb8e998a4f/raw";
 
 export function useCategories() {
   const [categories, setCategories] = useState<Category[]>([]);

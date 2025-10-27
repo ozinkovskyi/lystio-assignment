@@ -39,6 +39,7 @@ export interface RecentSearch {
 
 export interface SearchFiltersState {
   actionType: "rent" | "buy" | "ai";
+  activeField: "location" | "category" | "price" | null;
   location: string[];
   category: number[];
   priceRange: [number, number];

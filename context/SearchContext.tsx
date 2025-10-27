@@ -10,6 +10,7 @@ interface SearchContextType {
 
 type SearchAction =
   | { type: "SET_ACTION_TYPE"; payload: "rent" | "buy" | "ai" }
+  | { type: "SET_ACTIVE_FIELD"; payload: "location" | "category" | "price" | null }
   | { type: "SET_LOCATION"; payload: string[] }
   | { type: "SET_CATEGORY"; payload: number[] }
   | { type: "SET_PRICE_RANGE"; payload: [number, number] }
@@ -17,15 +18,21 @@ type SearchAction =
 
 const initialState: SearchFiltersState = {
   actionType: "rent",
+  activeField: null,
   location: [],
   category: [],
   priceRange: [0, 10000],
 };
 
-function searchReducer(state: SearchFiltersState, action: SearchAction): SearchFiltersState {
+function searchReducer(
+  state: SearchFiltersState,
+  action: SearchAction
+): SearchFiltersState {
   switch (action.type) {
     case "SET_ACTION_TYPE":
       return { ...state, actionType: action.payload };
+    case "SET_ACTIVE_FIELD":
+      return { ...state, activeField: action.payload };
     case "SET_LOCATION":
       return { ...state, location: action.payload };
     case "SET_CATEGORY":
@@ -44,7 +51,11 @@ const SearchContext = createContext<SearchContextType | undefined>(undefined);
 const SearchProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(searchReducer, initialState);
 
-  return <SearchContext.Provider value={{ state, dispatch }}>{children}</SearchContext.Provider>;
+  return (
+    <SearchContext.Provider value={{ state, dispatch }}>
+      {children}
+    </SearchContext.Provider>
+  );
 };
 
 const useSearch = () => {

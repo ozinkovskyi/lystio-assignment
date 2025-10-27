@@ -18,7 +18,7 @@ export const actionButtonsConfig: ActionButtonConfig[] = [
 ];
 
 export const actionButtonsStyles = {
-  container: "my-[21px]",
+  container: "",
   wrapper:
-    "inline-flex h-[38px] items-center justify-center gap-1 rounded-full bg-lystio-purple-light p-[4px] border-[1px] ",
+    "inline-flex h-[42px] items-center justify-center gap-1 rounded-full bg-lystio-purple-light p-[4px] border-[1px] ",
 };

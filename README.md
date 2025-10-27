@@ -38,11 +38,13 @@ lystio-assignment/
 ## Component Architecture
 
 ### ActionButtons Module
+
 - **Location:** `components/actionButtons/`
 - **Exports:** Main component (default), constants, types
 - **Style:** Modular, barrel exports, separation of concerns
 
 ### Features Implemented
+
 ✅ Action Buttons (Rent/Buy/AI)
 ✅ Modern-normalize CSS reset
 ✅ Tailwind CSS v4 configuration

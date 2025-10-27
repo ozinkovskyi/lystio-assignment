@@ -44,7 +44,9 @@ export const searchAPI = {
   /**
    * Get verified listings count
    */
-  getTenementCount: async (filters: SearchFilter): Promise<TenementCountResponse> => {
+  getTenementCount: async (
+    filters: SearchFilter
+  ): Promise<TenementCountResponse> => {
     const response = await api.post("/tenement/search/count", filters);
     return response.data;
   },

@@ -8,7 +8,7 @@ const ActionButton = ({ label, isActive, onClick, children }: ActionButtonProps)
     if (isActive) {
       return "bg-white text-black border border-white rounded-full transition-all";
     } else {
-      return "bg-transparent text-black border-0 rounded-full hover:bg-lystio-purple-hover";
+      return "bg-transparent text-black border-0 rounded-full";
     }
   };
 
