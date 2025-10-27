@@ -6,6 +6,12 @@ export interface SearchFieldConfig {
   placeholder: string;
 }
 
+export interface FieldPosition {
+  top: number;
+  left: number;
+  width: number;
+}
+
 export interface SearchFieldProps {
   type: FilterType;
   label: string;
@@ -13,4 +19,5 @@ export interface SearchFieldProps {
   onClick?: () => void;
   isMiddle?: boolean;
   isActive?: boolean | null;
+  onPositionChange?: (position: FieldPosition, fieldType: FilterType) => void;
 }

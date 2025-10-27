@@ -1,22 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { SearchFieldProps } from "./types";
 
 const SearchField = ({
+  type,
   label,
   placeholder,
   onClick,
   isMiddle,
   isActive,
+  onPositionChange,
 }: SearchFieldProps) => {
+  const fieldRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (isActive && fieldRef.current && onPositionChange) {
+      const rect = fieldRef.current.getBoundingClientRect();
+      onPositionChange({
+        top: rect.bottom,
+        left: rect.left,
+        width: rect.width,
+      }, type);
+    }
+  }, [isActive, onPositionChange, type]);
   const borderClasses = isMiddle
     ? "!border-l !border-r !border-[#eee7ff]"
     : "border-0";
 
   // If isActive is null, all buttons should be white
   const getBackgroundColor = () => {
-    console.log(`${label} - isActive: ${isActive}`);
     if (isActive === null || isActive) {
       return "#FFFFFF";
     }
@@ -25,6 +38,8 @@ const SearchField = ({
 
   return (
     <div
+      ref={fieldRef}
+      data-field-type={type}
       role="button"
       onClick={onClick}
       className={`flex flex-col h-full flex-1 whitespace-nowrap text-black flex-shrink-0 self-stretch py-[12px] px-[24px] ${borderClasses}`}
