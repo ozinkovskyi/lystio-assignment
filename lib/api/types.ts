@@ -14,6 +14,6 @@ export interface TenementCountResponse {
   count: number;
 }
 
-export interface RecentSearchResponse extends Array<RecentSearch> {}
+export type RecentSearchResponse = Location[];
 
 export interface BoundariesResponse extends Array<Location> {}

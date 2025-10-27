@@ -21,7 +21,7 @@ const initialState: SearchFiltersState = {
   activeField: null,
   location: [],
   category: [],
-  priceRange: [0, 10000],
+  priceRange: [0, 10000], // Will be updated dynamically from histogram
 };
 
 function searchReducer(

@@ -16,8 +16,10 @@ export interface SearchFieldProps {
   type: FilterType;
   label: string;
   placeholder: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   isMiddle?: boolean;
   isActive?: boolean | null;
   onPositionChange?: (position: FieldPosition, fieldType: FilterType) => void;
+  searchQuery?: string;
+  onSearchQueryChange?: (query: string) => void;
 }

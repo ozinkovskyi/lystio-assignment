@@ -8,9 +8,30 @@ export interface SearchFilter {
 }
 
 export interface Location {
-  id: string;
+  id?: string;
+  mapboxId?: string;
   name: string;
-  type: "city" | "district" | "neighborhood";
+  altName?: string;
+  type?: "locality" | "district" | "city" | "neighborhood" | "region";
+  pt?: [number, number]; // coordinates [longitude, latitude]
+  postal_code?: string;
+  urlSegment?: string | null;
+  children?: Location[];
+}
+
+// Alias for backward compatibility
+export interface BoundaryListSerializer {
+  name: string;
+  altName?: string;
+  id: string;
+  children: Array<{
+    name: string;
+    altName?: string;
+    id: string;
+    postal_code?: string;
+    urlSegment?: string | null;
+  }>;
+  urlSegment?: string | null;
 }
 
 export interface Category {
@@ -31,11 +52,8 @@ export interface HistogramBucket {
   count: number;
 }
 
-export interface RecentSearch {
-  id: string;
-  query: string;
-  timestamp: Date;
-}
+// Recent search is just an array of Location objects
+export interface RecentSearch extends Location {}
 
 export interface SearchFiltersState {
   actionType: "rent" | "buy" | "ai";
