@@ -57,8 +57,7 @@ const SearchBar = () => {
               />
             );
           })}
-          {/* TODO: TMP DISABLED */}
-          {/* <SearchButton label={searchButtonConfig.label} onClick={handleSearch} /> */}
+          <SearchButton label={searchButtonConfig.label} onClick={handleSearch} />
         </div>
       </div>
       {dropdownPosition && state.activeField && (

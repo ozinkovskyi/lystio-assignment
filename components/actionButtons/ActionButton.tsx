@@ -6,9 +6,9 @@ import { ActionButtonProps } from "./types";
 const ActionButton = ({ label, isActive, onClick, children }: ActionButtonProps) => {
   const getButtonStyle = () => {
     if (isActive) {
-      return "bg-white text-black border border-white rounded-full transition-all";
+      return "bg-white text-black border border-white rounded-full transition-all cursor-pointer";
     } else {
-      return "bg-transparent text-black border-0 rounded-full";
+      return "bg-transparent text-black border-0 rounded-full cursor-pointer";
     }
   };
 

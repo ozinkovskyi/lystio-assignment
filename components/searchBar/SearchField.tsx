@@ -42,7 +42,7 @@ const SearchField = ({
       data-field-type={type}
       role="button"
       onClick={onClick}
-      className={`flex flex-col h-full flex-1 whitespace-nowrap text-black flex-shrink-0 self-stretch py-[12px] px-[24px] ${borderClasses}`}
+      className={`flex flex-col h-full flex-1 whitespace-nowrap text-black flex-shrink-0 self-stretch py-[12px] px-[24px] cursor-pointer ${borderClasses}`}
       style={{ backgroundColor: getBackgroundColor() }}
           >
         <span
