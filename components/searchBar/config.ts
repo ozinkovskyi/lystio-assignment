@@ -28,5 +28,5 @@ export const searchButtonConfig = {
 export const searchBarStyles = {
   container: "flex justify-center",
   wrapper:
-    "inline-flex h-[65px] w-[850px] items-center overflow-hidden justify-between rounded-full bg-white border-[1px] border-[#eee7ff]",
+    "inline-flex h-[65px] w-[850px] items-center overflow-hidden rounded-full bg-white border-[1px] border-[#eee7ff]",
 };
