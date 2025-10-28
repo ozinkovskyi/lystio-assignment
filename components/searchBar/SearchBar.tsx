@@ -179,6 +179,8 @@ const SearchBar = () => {
               />
             );
           })}
+        </div>
+        <div className="absolute right-[calc(50%-425px+8px)] top-1/2 -translate-y-1/2">
           <SearchButton
             label={searchButtonConfig.label}
             onClick={handleSearch}
