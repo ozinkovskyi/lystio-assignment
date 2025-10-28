@@ -80,22 +80,21 @@ const SearchField = ({
             onSearchQueryChange && onSearchQueryChange(e.target.value);
           }}
           onClick={(e) => e.stopPropagation()}
-          className="w-full border-none bg-transparent outline-none"
+          className="w-full border-none bg-transparent outline-none text-black-shade"
           style={{
-            color: "var(--Black, #0E0E0E)",
             fontFamily: "Plus Jakarta Sans",
-            fontSize: "16px",
-            fontWeight: 400,
+            fontSize: "14px",
+            fontWeight: 500,
             lineHeight: "160%",
           }}
         />
       ) : (
         <span
+          className="text-black-shade"
           style={{
-            color: "var(--Black, #0E0E0E)",
             fontFamily: "Plus Jakarta Sans",
-            fontSize: "16px",
-            fontWeight: 400,
+            fontSize: "14px",
+            fontWeight: 500,
             lineHeight: "160%",
           }}
         >
