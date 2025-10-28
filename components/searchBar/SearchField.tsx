@@ -43,13 +43,8 @@ const SearchField = ({
     ? "!border-l !border-r !border-[#eee7ff]"
     : "border-0";
 
-  // If isActive is null, all buttons should be white
-  const getBackgroundColor = () => {
-    if (isActive === null || isActive) {
-      return "#FFFFFF";
-    }
-    return "#f7f7fd";
-  };
+  // Tailwind-only background classes
+  const backgroundClass = isActive === null || isActive ? "bg-white" : "bg-[#f7f7fd]";
 
   return (
     <div
@@ -57,16 +52,9 @@ const SearchField = ({
       data-field-type={type}
       role="button"
       onClick={(e) => onClick && onClick(e)}
-      className={`flex h-full min-w-0 flex-1 shrink cursor-pointer flex-col self-stretch px-[24px] py-[12px] whitespace-nowrap text-black ${borderClasses}`}
-      style={{ backgroundColor: getBackgroundColor() }}
+      className={`flex h-full min-w-0 flex-1 shrink cursor-pointer flex-col self-stretch px-[24px] py-[12px] whitespace-nowrap text-black ${backgroundClass} ${borderClasses}`}
     >
-      <span
-        style={{
-          fontFamily: "Plus Jakarta Sans",
-          fontSize: "12px",
-          fontWeight: 500,
-        }}
-      >
+      <span className="font-jakarta text-[12px] font-medium">
         {label}
       </span>
       {type === "location" && isActive ? (
@@ -80,24 +68,10 @@ const SearchField = ({
             onSearchQueryChange && onSearchQueryChange(e.target.value);
           }}
           onClick={(e) => e.stopPropagation()}
-          className="w-full border-none bg-transparent outline-none text-black-shade"
-          style={{
-            fontFamily: "Plus Jakarta Sans",
-            fontSize: "14px",
-            fontWeight: 500,
-            lineHeight: "160%",
-          }}
+          className="w-full border-none bg-transparent outline-none font-jakarta text-sm font-medium leading-[160%] text-black-shade"
         />
       ) : (
-        <span
-          className="text-black-shade"
-          style={{
-            fontFamily: "Plus Jakarta Sans",
-            fontSize: "14px",
-            fontWeight: 500,
-            lineHeight: "160%",
-          }}
-        >
+        <span className="font-jakarta text-sm font-medium leading-[160%] text-black-shade">
           {placeholder}
         </span>
       )}
