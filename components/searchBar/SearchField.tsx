@@ -68,10 +68,13 @@ const SearchField = ({
             onSearchQueryChange && onSearchQueryChange(e.target.value);
           }}
           onClick={(e) => e.stopPropagation()}
-          className="w-full border-none bg-transparent outline-none font-jakarta text-sm font-medium leading-[160%] text-black-shade"
+          id={`search-${type}`}
+          name={`search-${type}`}
+          autoComplete="off"
+          className="w-full pt-[3px]  border-none bg-transparent outline-none font-jakarta text-sm font-medium leading-[160%] tracking-normal align-middle text-black-shade appearance-none placeholder:text-black-shade"
         />
       ) : (
-        <span className="font-jakarta text-sm font-medium leading-[160%] text-black-shade">
+        <span className="font-jakarta text-m font-medium leading-[160%] tracking-normal text-black-shade inline-block align-middle">
           {placeholder}
         </span>
       )}
