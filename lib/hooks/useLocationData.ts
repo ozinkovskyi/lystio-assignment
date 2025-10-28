@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 import { searchAPI } from "@/lib/api/search";
 import { Location } from "@/types";
@@ -49,7 +51,7 @@ export const useLocationData = (searchQuery: string) => {
         setPopularBoundaries(flattened);
         setRecentSearches(recent);
       } catch (error) {
-        console.error("Error fetching location data:", error);
+        console.error("Error fetching Location data:", error);
       } finally {
         setLoading(false);
       }

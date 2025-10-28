@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useSearch } from "@/context/SearchContext";
-import SearchField from "./SearchField";
-import SearchButton from "./SearchButton";
-import Dropdown from "./Dropdown";
+import SearchField from "./SearchElements/SearchField";
+import SearchButton from "./SearchElements/SearchButton";
+import SearchDropdown from "@/components/Search/SearchDropdown/SearchDropdown";
 import { FilterType, FieldPosition } from "./types";
 import {
   searchFieldsConfig,
@@ -12,7 +12,7 @@ import {
   searchButtonConfig,
 } from "./index";
 
-const SearchBar = () => {
+const Search = () => {
   const { state, dispatch } = useSearch();
   const [dropdownPosition, setDropdownPosition] =
     useState<FieldPosition | null>(null);
@@ -70,7 +70,7 @@ const SearchBar = () => {
     if (!newActiveField) {
       console.log("Closing dropdown");
       setDropdownPosition(null);
-      // Reset search query when closing location dropdown
+      // Reset search query when closing Location dropdown
       if (state.activeField === "location") {
         setLocationSearchQuery("");
       }
@@ -188,7 +188,7 @@ const SearchBar = () => {
         </div>
       </div>
       {dropdownPosition && state.activeField && (
-        <Dropdown
+        <SearchDropdown
           isOpen={true}
           top={dropdownPosition.top}
           left={dropdownPosition.left}
@@ -202,4 +202,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Search;

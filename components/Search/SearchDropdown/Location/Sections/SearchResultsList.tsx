@@ -1,6 +1,6 @@
 import React from "react";
 import { Location } from "@/types";
-import LocationItem from "./LocationItem";
+import LocationItem from "../Items/LocationItem";
 
 interface SearchResultsListProps {
   results: Location[];

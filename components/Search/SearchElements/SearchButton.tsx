@@ -23,7 +23,7 @@ const SearchButton = ({ label, onClick }: SearchButtonProps) => {
         fontSize: "16px",
         fontWeight: 500,
         lineHeight: "150%",
-        marginRight: "8px",
+        marginRight: "4px",
       }}
     >
       <SearchIcon />

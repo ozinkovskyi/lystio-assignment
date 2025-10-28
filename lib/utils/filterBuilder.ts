@@ -6,7 +6,7 @@ import { SearchFilter, SearchFiltersState } from "@/types";
 export function buildFilterObject(state: SearchFiltersState): SearchFilter {
   const filter: SearchFilter = {};
 
-  // Add location filter (withinId)
+  // Add Location filter (withinId)
   if (state.location.length > 0) {
     filter.withinId = state.location;
   }

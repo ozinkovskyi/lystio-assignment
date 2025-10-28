@@ -2,14 +2,14 @@
 
 import React from "react";
 import { useSearch } from "@/context/SearchContext";
-import { useLocationData } from "./location/useLocationData";
+import { useLocationData } from "@/components/Search/SearchDropdown/Location/useLocationData";
 import {
   DrawAreaButton,
   PopularCitiesList,
   DistrictsList,
   SearchResultsList,
   RecentSearchesList,
-} from "./location";
+} from "./index";
 
 interface LocationContentProps {
   searchQuery: string;
@@ -29,10 +29,10 @@ const LocationContent = ({ searchQuery }: LocationContentProps) => {
   const handleLocationSelect = (locationId: string | undefined) => {
     if (!locationId) return;
 
-    // Only one location can be selected at a time
+    // Only one Location can be selected at a time
     const newLocations = state.location.includes(locationId)
-      ? [] // If clicking the same location, deselect it
-      : [locationId]; // Otherwise, select only this location
+      ? [] // If clicking the same Location, deselect it
+      : [locationId]; // Otherwise, select only this Location
 
     dispatch({ type: "SET_LOCATION", payload: newLocations });
   };
@@ -71,15 +71,6 @@ const LocationContent = ({ searchQuery }: LocationContentProps) => {
         ) : (
           <DistrictsList
             districts={displayResults}
-            selectedLocations={state.location}
-            onLocationSelect={handleLocationSelect}
-          />
-        )}
-
-        {/* Recent Searches */}
-        {!searchQuery && (
-          <RecentSearchesList
-            recentSearches={recentSearches}
             selectedLocations={state.location}
             onLocationSelect={handleLocationSelect}
           />

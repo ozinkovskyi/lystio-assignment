@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useEffect } from "react";
-import { SearchFieldProps } from "./types";
+import { SearchFieldProps } from "../types";
 
 const SearchField = ({
   type,
@@ -33,7 +33,7 @@ const SearchField = ({
     }
   }, [isActive, onPositionChange, type]);
 
-  // Auto-focus input when location field becomes active
+  // Auto-focus input when Location field becomes active
   useEffect(() => {
     if (type === "location" && isActive && inputRef.current) {
       inputRef.current.focus();

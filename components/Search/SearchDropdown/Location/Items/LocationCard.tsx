@@ -2,38 +2,15 @@ import React from "react";
 import { Location } from "@/types";
 import { CheckMarkIcon } from "@/app/assets/icons";
 
-interface LocationItemProps {
+interface LocationCardProps {
   location: Location;
   isSelected: boolean;
   onClick: () => void;
-  variant?: "card" | "list";
 }
 
-const LocationItem = ({
-  location,
-  isSelected,
-  onClick,
-  variant = "card",
-}: LocationItemProps) => {
-  const isList = variant === "list";
-
-  if (isList) {
-    return (
-      <button
-        onClick={onClick}
-        className={`flex w-full cursor-pointer items-center justify-between rounded px-3 py-2 text-left transition-colors hover:bg-gray-50 ${
-          isSelected ? "bg-purple-50" : ""
-        }`}
-      >
-        <span className="text-sm text-gray-900">{location.name}</span>
-        {isSelected && <CheckMarkIcon />}
-      </button>
-    );
-  }
-
+const LocationCard = ({ location, isSelected, onClick }: LocationCardProps) => {
   const districtsCount = location.children?.length || 0;
-  console.log(districtsCount, "<<<districtsCount");
-  console.log(location, "<<<.children");
+
   return (
     <div
       role="button"
@@ -70,4 +47,4 @@ const LocationItem = ({
   );
 };
 
-export default LocationItem;
+export default LocationCard;
